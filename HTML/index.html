@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>象棋卜卦工具</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="chessboard">
+        <div class="chess-slot" id="slot1"></div>
+        <div class="chess-slot" id="slot2"></div>
+        <div class="chess-slot" id="slot3"></div>
+        <div class="chess-slot" id="slot4"></div>
+        <div class="chess-slot" id="slot5"></div>
+        <div class="chess-slot" id="slot6"></div>
+        <div class="chess-slot" id="slot7"></div>
+        <div class="chess-slot" id="slot8"></div>
+        <div class="chess-slot" id="slot9"></div>
+        <div class="chess-slot" id="slot10"></div>
+        <div class="chess-slot" id="slot11"></div>
+        <div class="chess-slot" id="slot12"></div>
+        <div class="chess-slot" id="slot13"></div>
+        <div class="chess-slot" id="slot14"></div>
+        <div class="chess-slot" id="slot15"></div>
+        <div class="chess-slot" id="slot16"></div>
+        <div class="chess-slot" id="slot17"></div>
+        <div class="chess-slot" id="slot18"></div>
+        <div class="chess-slot" id="slot19"></div>
+        <div class="chess-slot" id="slot20"></div>
+        <div class="chess-slot" id="slot21"></div>
+        <div class="chess-slot" id="slot22"></div>
+        <div class="chess-slot" id="slot23"></div>
+        <div class="chess-slot" id="slot24"></div>
+        <div class="chess-slot" id="slot25"></div>
+        <div class="chess-slot" id="slot26"></div>
+        <div class="chess-slot" id="slot27"></div>
+        <div class="chess-slot" id="slot28"></div>
+        <div class="chess-slot" id="slot29"></div>
+        <div class="chess-slot" id="slot30"></div>
+        <div class="chess-slot" id="slot31"></div>
+        <div class="chess-slot" id="slot32"></div>
+        <div class="chess-slot" id="slot33"></div>
+        <div class="chess-slot2" id="slot34"></div>
+        <div class="chess-slot2" id="slot35"></div>
+        <div class="chess-slot2" id="slot36"></div>
+        <div class="chess-slot2" id="slot37"></div>
+        <div class="chess-slot2" id="slot38"></div>
+    </div>
+    <div id="pieces">
+        <div class="piece-button" id="piece1" onclick="placePiece('images/C_P_0.png')"></div>
+        <div class="piece-button" id="piece2" onclick="placePiece('images/C_P_1.png')"></div>
+        <div class="piece-button" id="piece3" onclick="placePiece('images/C_P_2.png')"></div>
+        <div class="piece-button" id="piece4" onclick="placePiece('images/C_P_3.png')"></div>
+        <div class="piece-button" id="piece5" onclick="placePiece('images/C_P_4.png')"></div>
+        <div class="piece-button" id="piece6" onclick="placePiece('images/C_P_5.png')"></div>
+        <div class="piece-button" id="piece7" onclick="placePiece('images/C_P_6.png')"></div>
+        <div class="piece-button" id="piece8" onclick="placePiece('images/C_P_7.png')"></div>
+        <div class="piece-button" id="piece9" onclick="placePiece('images/C_P_8.png')"></div>
+        <div class="piece-button" id="piece10" onclick="placePiece('images/C_P_9.png')"></div>
+        <div class="piece-button" id="piece11" onclick="placePiece('images/C_P_10.png')"></div>
+        <div class="piece-button" id="piece12" onclick="placePiece('images/C_P_11.png')"></div>
+        <div class="piece-button" id="piece13" onclick="placePiece('images/C_P_12.png')"></div>
+        <div class="piece-button" id="piece14" onclick="placePiece('images/C_P_13.png')"></div>
+        <!-- 棋子按鈕將放在這裡 -->
+    </div>
+    <div id="button-container">
+        <button class="control-button" id="switch" onclick="switchChessboard()">切換棋盤</button>
+        <button class="control-button" id="undo" onclick="undo()">上一步</button>
+        <button class="control-button" id="saveProblem" onclick="captureAndDownload('B')">問題</button>
+        <button class="control-button" id="saveYearFortune" onclick="captureAndDownload('A')">年運</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
