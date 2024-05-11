@@ -50,36 +50,36 @@
     }
 });
 let pieces = {
-    'images/C_P_0.png': 1, // 帥/將
-    'images/C_P_1.png': 2, // 士
-    'images/C_P_2.png': 2, // 象/相
-    'images/C_P_3.png': 2, // 馬
-    'images/C_P_4.png': 2, // 車
-    'images/C_P_5.png': 2, // 炮
-    'images/C_P_6.png': 5,  // 兵/卒
-    'images/C_P_7.png': 1, // 帥/將
-    'images/C_P_8.png': 2, // 士
-    'images/C_P_9.png': 2, // 象/相
-    'images/C_P_10.png': 2, // 馬
-    'images/C_P_11.png': 2, // 車
-    'images/C_P_12.png': 2, // 炮
-    'images/C_P_13.png': 5  // 兵/卒
+    'images/C_P_0.png': 1, 
+    'images/C_P_1.png': 2,
+    'images/C_P_2.png': 2, 
+    'images/C_P_3.png': 2, 
+    'images/C_P_4.png': 2, 
+    'images/C_P_5.png': 2, 
+    'images/C_P_6.png': 5,  
+    'images/C_P_7.png': 1, 
+    'images/C_P_8.png': 2, 
+    'images/C_P_9.png': 2, 
+    'images/C_P_10.png': 2, 
+    'images/C_P_11.png': 2, 
+    'images/C_P_12.png': 2, 
+    'images/C_P_13.png': 5 
 };
 let originalPieces = {
-    'images/C_P_0.png': 1, // 帥/將
-    'images/C_P_1.png': 2, // 士
-    'images/C_P_2.png': 2, // 象/相
-    'images/C_P_3.png': 2, // 馬
-    'images/C_P_4.png': 2, // 車
-    'images/C_P_5.png': 2, // 炮
-    'images/C_P_6.png': 5,  // 兵/卒
-    'images/C_P_7.png': 1, // 帥/將（对方）
-    'images/C_P_8.png': 2, // 士（对方）
-    'images/C_P_9.png': 2, // 象/相（对方）
-    'images/C_P_10.png': 2, // 馬（对方）
-    'images/C_P_11.png': 2, // 車（对方）
-    'images/C_P_12.png': 2, // 炮（对方）
-    'images/C_P_13.png': 5  // 兵/卒（对方）
+    'images/C_P_0.png': 1, 
+    'images/C_P_1.png': 2, 
+    'images/C_P_2.png': 2, 
+    'images/C_P_3.png': 2, 
+    'images/C_P_4.png': 2, 
+    'images/C_P_5.png': 2, 
+    'images/C_P_6.png': 5, 
+    'images/C_P_7.png': 1, 
+    'images/C_P_8.png': 2,
+    'images/C_P_9.png': 2, 
+    'images/C_P_10.png': 2, 
+    'images/C_P_11.png': 2, 
+    'images/C_P_12.png': 2, 
+    'images/C_P_13.png': 5  
 };
 let currentSlot = 1;
 let history = [];
@@ -91,11 +91,16 @@ function placePiece(imageUrl) {
 
         if (slot && ((currentBoard === 'A' && currentSlot <= 33) || (currentBoard === 'B' && currentSlot <= 38))) {
             slot.style.backgroundImage = `url('${imageUrl}')`;
-            pieces[imageUrl]--; // 减少棋子数量
-            // 添加操作到历史记录
+            pieces[imageUrl]--;
+           
             history.push({ slotId: slotId, imageUrl: imageUrl });
 
-            currentSlot++; // 移动到下一个槽位
+            currentSlot++; 
+
+            
+            if (slotId === 'slot4') {
+                moveImageFromSlot4ToSlot33();
+            }
 
             /*if (pieces[imageUrl] === 0) {
                 let button = document.getElementById(imageUrl);
@@ -104,10 +109,9 @@ function placePiece(imageUrl) {
             }*/
         }
     } else {
-        alert("此棋已無剩餘。");
+        alert("棋子已無剩餘。");
     }
 }
-
 
 
 function moveImageFromSlot4ToSlot33() {
@@ -120,11 +124,11 @@ function moveImageFromSlot4ToSlot33() {
 
 function undo() {
     if (history.length > 0) {
-        let lastMove = history.pop(); // 获取并移除最后一次操作
+        let lastMove = history.pop();
         let slot = document.getElementById(lastMove.slotId);
         if (slot) {
-            slot.style.backgroundImage = ''; // 清除棋子图像
-            pieces[lastMove.imageUrl]++; // 恢复棋子数量
+            slot.style.backgroundImage = '';
+            pieces[lastMove.imageUrl]++; 
             currentSlot--;
 
            /* let button = document.getElementById(lastMove.imageUrl);
@@ -137,51 +141,50 @@ function undo() {
 }
 
 
-// 添加撤销按钮的事件监听
-//document.getElementById('undoButton').addEventListener('click', undo);
 
-let currentBoard = 'A'; // 初始设置为棋盤A
+
+let currentBoard = 'A';
 
 function switchChessboard() {
     let chessboard = document.getElementById('chessboard');
 
-    // 清空所有棋子和重置计数器
+    
     document.querySelectorAll('.chess-slot').forEach(slot => {
-        slot.style.backgroundImage = ''; // 清除棋子
+        slot.style.backgroundImage = ''; 
     });
     document.querySelectorAll('.chess-slot2').forEach(slot => {
-        slot.style.backgroundImage = ''; // 清除棋子
+        slot.style.backgroundImage = ''; 
     });
-    // 重置棋子计数
+   
     for (let key in pieces) {
-        pieces[key] = originalPieces[key]; // 使用 originalPieces 重置棋子计数
+        pieces[key] = originalPieces[key];
     }
 
     if (currentBoard === 'A') {
-        // 切换到棋盘B
+       
         chessboard.style.backgroundImage = "url('images/B_B_1.png')";
-        chessboard.style.width = '20vw'; // 恢复棋盘A的宽度
-        chessboard.style.height = '20vw'; // 恢复棋盘A的高度
+        chessboard.style.width = '20vw'; 
+        chessboard.style.height = '20vw';
         currentBoard = 'B';
-        currentSlot = 34; // 开始填充棋盘B的第一个槽位
+        currentSlot = 34;
     } else {
-        // 切换回棋盘A
+        
         chessboard.style.backgroundImage = "url('images/B_B_0.jpg')";
-        chessboard.style.width = '8vw'; // 恢复棋盘A的宽度
-        chessboard.style.height = '45.2vw'; // 恢复棋盘A的高度
-        chessboard.style.gridTemplateColumns = 'repeat(17, 1fr)'; // 恢复棋盘A的列配置
-        chessboard.style.gridTemplateRows = 'repeat(3, 1fr)'; // 恢复棋盘A的行配置
+        chessboard.style.width = '8vw'; 
+        chessboard.style.height = '45.2vw'; 
+        chessboard.style.gridTemplateColumns = 'repeat(17, 1fr)'; 
+        chessboard.style.gridTemplateRows = 'repeat(3, 1fr)';
         currentBoard = 'A';
-        currentSlot = 1; // 重新开始填充棋盘A的第一个槽位
+        currentSlot = 1;
     }
 }
 
-//document.getElementById('switchButton').addEventListener('click', switchChessboard);
+
 
 function captureAndDownload(boardType) {
     var chessboardElement = document.getElementById('chessboard');
 
-    // 延迟执行截图操作，确保背景图加载完成
+   
     setTimeout(() => {
         domtoimage.toBlob(chessboardElement)
             .then(function (blob) {
@@ -190,5 +193,5 @@ function captureAndDownload(boardType) {
             .catch(function (error) {
                 console.error('Oops, something went wrong!', error);
             });
-    }, 500); // 延迟500毫秒
+    }, 500); 
 }
