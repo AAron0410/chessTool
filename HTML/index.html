@@ -6,7 +6,6 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div id="instructions">鍵盤操作須知：QWERTYU和ASDFGHJ為增加棋子,Delete為上一步,其餘皆為點擊操作</div>
     <div id="chessboard">
         <div class="chess-slot" id="slot1"></div>
         <div class="chess-slot" id="slot2"></div>
@@ -47,30 +46,28 @@
         <div class="chess-slot2" id="slot37"></div>
         <div class="chess-slot2" id="slot38"></div>
     </div>
+    <div id="pieces">
+        <div class="piece-button" id="piece1" onclick="placePiece('images/C_P_0.png')"></div>
+        <div class="piece-button" id="piece2" onclick="placePiece('images/C_P_1.png')"></div>
+        <div class="piece-button" id="piece3" onclick="placePiece('images/C_P_2.png')"></div>
+        <div class="piece-button" id="piece4" onclick="placePiece('images/C_P_3.png')"></div>
+        <div class="piece-button" id="piece5" onclick="placePiece('images/C_P_4.png')"></div>
+        <div class="piece-button" id="piece6" onclick="placePiece('images/C_P_5.png')"></div>
+        <div class="piece-button" id="piece7" onclick="placePiece('images/C_P_6.png')"></div>
+        <div class="piece-button" id="piece8" onclick="placePiece('images/C_P_7.png')"></div>
+        <div class="piece-button" id="piece9" onclick="placePiece('images/C_P_8.png')"></div>
+        <div class="piece-button" id="piece10" onclick="placePiece('images/C_P_9.png')"></div>
+        <div class="piece-button" id="piece11" onclick="placePiece('images/C_P_10.png')"></div>
+        <div class="piece-button" id="piece12" onclick="placePiece('images/C_P_11.png')"></div>
+        <div class="piece-button" id="piece13" onclick="placePiece('images/C_P_12.png')"></div>
+        <div class="piece-button" id="piece14" onclick="placePiece('images/C_P_13.png')"></div>
+        <!-- 棋子按鈕將放在這裡 -->
+    </div>
     <div id="button-container">
-        <div id="control-buttons">
-            <button class="control-button" id="switch" onclick="switchChessboard()">切換棋盤</button>
-            <button class="control-button" id="undo" onclick="undo()">上一步</button>
-            <button class="control-button" id="saveProblem" onclick="captureAndDownload('B')">問題</button>
-            <button class="control-button" id="saveYearFortune" onclick="captureAndDownload('A')">年運</button>
-        </div>
-        <div id="pieces">
-            <div class="piece-button" id="piece1" onclick="placePiece('images/C_P_0.png')"></div>
-            <div class="piece-button" id="piece2" onclick="placePiece('images/C_P_1.png')"></div>
-            <div class="piece-button" id="piece3" onclick="placePiece('images/C_P_2.png')"></div>
-            <div class="piece-button" id="piece4" onclick="placePiece('images/C_P_3.png')"></div>
-            <div class="piece-button" id="piece5" onclick="placePiece('images/C_P_4.png')"></div>
-            <div class="piece-button" id="piece6" onclick="placePiece('images/C_P_5.png')"></div>
-            <div class="piece-button" id="piece7" onclick="placePiece('images/C_P_6.png')"></div>
-            <div class="piece-button" id="piece8" onclick="placePiece('images/C_P_7.png')"></div>
-            <div class="piece-button" id="piece9" onclick="placePiece('images/C_P_8.png')"></div>
-            <div class="piece-button" id="piece10" onclick="placePiece('images/C_P_9.png')"></div>
-            <div class="piece-button" id="piece11" onclick="placePiece('images/C_P_10.png')"></div>
-            <div class="piece-button" id="piece12" onclick="placePiece('images/C_P_11.png')"></div>
-            <div class="piece-button" id="piece13" onclick="placePiece('images/C_P_12.png')"></div>
-            <div class="piece-button" id="piece14" onclick="placePiece('images/C_P_13.png')"></div>
-            <!-- 棋子按钮 -->
-        </div>
+        <button class="control-button" id="switch" onclick="switchChessboard()">切換棋盤</button>
+        <button class="control-button" id="undo" onclick="undo()">上一步</button>
+        <button class="control-button" id="saveProblem" onclick="captureAndDownload('B')">問題</button>
+        <button class="control-button" id="saveYearFortune" onclick="captureAndDownload('A')">年運</button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
