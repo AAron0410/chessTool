@@ -192,6 +192,7 @@ function captureAndDownload(boardType) {
             transform: 'scale(1)', // 增加图像清晰度但保持原始尺寸比例
             transformOrigin: 'top left'
         }
+        quality: 1 
     })
     .then(function (dataUrl) {
         var link = document.createElement('a');
