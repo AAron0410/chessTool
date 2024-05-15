@@ -189,7 +189,7 @@ function captureAndDownload(boardType) {
         height: node.scrollHeight,  // 使用元素的滚动高度
         width: node.scrollWidth,    // 使用元素的滚动宽度
         style: {
-            transform: 'scale(2)', // 增加图像清晰度但保持原始尺寸比例
+            transform: 'scale(1)', // 增加图像清晰度但保持原始尺寸比例
             transformOrigin: 'top left'
         }
     })
